@@ -1,36 +1,26 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Offline Messenger
 
-## Getting Started
+A communication system that lets users exchange messages via a browser-based chat interface, while using LoRa (Long Range radio) for actual data transmission. 
 
-First, run the development server:
+Built with React.js on the frontend and an ESP32-based Heltec LoRa board running Arduino firmware, this project enables messaging between devices in offline or no-infrastructure environments.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## How It Works
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Compose & Send Message**: The user types a message in the browser, which is handled by the `ChatInterface` component and sent to the connected LoRa device.
+2. **Transmit via LoRa**: ESP32 Heltec board sends the message wirelessly using LoRa to another device.
+3. **Receive + Display**: Incoming messages are received via LoRa and displayed in the same browser UI.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
+- **Frontend:** React
+- **Microcontroller:** Heltec WiFi LoRa 32 (ESP32 + SX1276)
+- **Firmware:** Arduino (C++)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Use Case
+- Communication in remote or disaster-hit areas with no internet
